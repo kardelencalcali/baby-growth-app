@@ -1,0 +1,104 @@
+<ion-content>
+  <div id="lottie-background"></div>
+  <ion-grid class="centered-card" >
+    <ion-row class="ion-justify-content-center">
+      <!-- Sayfa 1: Uygulama Hakkında -->
+      <ion-col size="12" size-md="8" size-lg="6" *ngIf="currentPage == 'page1'">
+        <ion-card class="info-card active">
+          <ion-card-header>
+            <ion-card-title>
+              <ion-icon name="information-circle-outline"></ion-icon> Uygulama Hakkında
+            </ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <p>Bu uygulama, bebeğinizin büyüme persentilini hesaplamanıza ve takip etmenize yardımcı olur. Bebeğinizin verilerini kullanarak büyüme eğrilerini oluşturur ve karşılaştırma yapmanızı sağlar.</p>
+            <div class="button-container">
+              <ion-button expand="full" (click)="nextPage('page2')">İLERİ</ion-button>
+              <ion-button expand="full" (click)="goToLogin()">ATLA</ion-button>
+            </div>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+
+      <!-- Sayfa 2: Sık Sorulan Sorular -->
+      <ion-col centered-card size="12" size-md="8" size-lg="6" *ngIf="currentPage == 'page2'">
+        <ion-card class="info-card">
+          <ion-card-header>
+            <ion-card-title>
+              <ion-icon name="help-circle-outline"></ion-icon> Sık Sorulan Sorular (SSS)
+            </ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-list>
+              <ion-item>
+                <ion-icon name="bar-chart-outline" slot="start"></ion-icon>
+                <ion-label>
+                  <h2>Persentil nedir?</h2>
+                  <p>Persentil, bebeğinizin diğer bebeklere kıyasla nasıl olduğunu gösterir. Örneğin, 75. persentilde bir bebek, %75'inden daha uzun veya ağırdır.</p>
+                </ion-label>
+              </ion-item>
+              <ion-item>
+                <ion-icon name="phone-portrait-outline" slot="start"></ion-icon>
+                <ion-label>
+                  <h2>Uygulama nasıl kullanılır?</h2>
+                  <p>Uygulama, bebeğinizin bilgilerini girerek persentil hesaplamaları yapmanıza olanak tanır. Sonuçları grafiklerle görebilirsiniz.</p>
+                </ion-label>
+              </ion-item>
+            </ion-list>
+            <div class="button-container">
+              <ion-button expand="full" (click)="nextPage('page1')">GERİ</ion-button>
+              <ion-button expand="full" (click)="nextPage('page3')">İLERİ</ion-button>
+            </div>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+
+      <!-- Sayfa 3: Kullanım Kılavuzu -->
+      <ion-col size="12" size-md="8" size-lg="6" *ngIf="currentPage == 'page3'">
+        <ion-card class="info-card">
+          <ion-card-header>
+            <ion-card-title>
+              <ion-icon name="list-outline"></ion-icon> Kullanım Kılavuzu
+            </ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-list>
+              <ion-item>
+                <ion-icon name="add-outline" slot="start"></ion-icon>
+                <ion-label>
+                  <h2>Adım 1: Hesap Oluşturma</h2>
+                  <p>Bir hesap oluşturun veya mevcut hesabınıza giriş yapın.</p>
+                </ion-label>
+              </ion-item>
+              <ion-item>
+                <ion-icon name="clipboard-outline" slot="start"></ion-icon>
+                <ion-label>
+                  <h2>Adım 2: Bebek Bilgilerini Girme</h2>
+                  <p>Bebeğinizin bilgilerini girin.</p>
+                </ion-label>
+              </ion-item>
+              <ion-item>
+                <ion-icon name="calculator-outline" slot="start"></ion-icon>
+                <ion-label>
+                  <h2>Adım 3: Persentil Hesaplama</h2>
+                  <p>Bilgilerle persentil hesaplamalarını yapın ve sonuçları görün.</p>
+                </ion-label>
+              </ion-item>
+              <ion-item>
+                <ion-icon name="eye-outline" slot="start"></ion-icon>
+                <ion-label>
+                  <h2>Adım 4: Sonuçları Görüntüleme</h2>
+                  <p>Sonuçları grafikler halinde görüntüleyin.</p>
+                </ion-label>
+              </ion-item>
+            </ion-list>
+            <div class="button-container">
+              <ion-button expand="full" (click)="nextPage('page2')">GERİ</ion-button>
+              <ion-button expand="full" (click)="goToLogin()">BAŞLA</ion-button>
+            </div>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

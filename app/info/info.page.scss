@@ -1,0 +1,36 @@
+/* Ion-content'in tam ekran kaplamasını sağlar */
+ion-content {
+  --background: transparent;
+}
+
+#lottie-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.info-card {
+  margin-top: 20px;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px; /* Butonlar arasındaki boşluk */
+}
+
+ion-button {
+  --background: #ad82d8;
+  --color: #fff;
+}
+
+.centered-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}

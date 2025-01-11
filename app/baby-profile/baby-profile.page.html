@@ -1,0 +1,90 @@
+<ion-content>
+  <!-- Profil Başlığı ve Fotoğraf -->
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Profil</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <div class="profile-container">
+        <div class="avatar-frame">
+          <div class="avatar-container">
+            <ion-avatar (click)="fileInput.click()">
+              <img *ngIf="profileImage" [src]="profileImage" alt="Profil Fotoğrafı" />
+              <div *ngIf="!profileImage" class="placeholder-container">
+                <ion-icon name="add-circle" class="placeholder-icon"></ion-icon>
+                <p class="placeholder-text">Fotoğraf Ekle</p>
+              </div>
+            </ion-avatar>
+            <div *ngIf="profileImage" class="delete-photo-btn" (click)="deleteProfileImage()">
+              <ion-icon name="trash-outline"></ion-icon>
+            </div>
+          </div>
+          <input type="file" (change)="onFileSelected($event)" class="file-input" #fileInput hidden />
+        </div>
+        <div class="baby-name-container">
+          <ion-item>
+            <ion-label position="floating">Bebeğinizin Adı</ion-label>
+            <ion-input [(ngModel)]="newBabyName"></ion-input>
+          </ion-item>
+          <ion-button [disabled]="babyName === newBabyName" expand="full" (click)="saveBabyName()">KAYDET</ion-button>
+        </div>
+      </div>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Geçmiş Ölçülerim ve Persentil Bilgisi -->
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Geçmiş Persentil Değerleri</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ng-container *ngFor="let measurement of measurements; let i = index">
+          <ion-item (click)="toggleCard(i)">
+            <ion-title>{{ formatDate(measurement.measurementDate) }}</ion-title>
+          </ion-item>
+          <ion-card *ngIf="selectedIndex === i">
+            <ion-card-content>
+              <ion-row>
+                <ion-col size="6">
+                  <p>Doğum Tarihi: {{ formatDate(measurement.birthDate) }}</p>
+                  <p>Boy: {{ measurement.height }} cm</p>
+                </ion-col>
+                <ion-col size="6">
+                  <p>Ağırlık: {{ measurement.weight }} kg</p>
+                  <p>Boy Yüzdesi: {{ measurement.heightPercentile }} cm</p>
+                  <p>Ağırlık Yüzdesi: {{ measurement.weightPercentile }}%</p>
+                </ion-col>
+              </ion-row>
+            </ion-card-content>
+            <ion-footer>
+              <ion-toolbar>
+                <ion-button color="danger" (click)="deleteMeasurement(i)">
+                  Sil
+                </ion-button>
+              </ion-toolbar>
+            </ion-footer>
+          </ion-card>
+        </ng-container>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Persentil Bilgisi -->
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Persentil Değerlendirilmesi Nasıl Yapılır?</ion-card-title>
+    </ion-card-header>
+    <ion-card-content class="percentile-info">
+      <p>Persentil, bebeğinizin büyüme verilerinin yaş ve cinsiyete göre nasıl olduğunu gösterir.</p>
+      <p>Çocuklar genellikle 5. ve 95. persentil arasında bir yerde olmalıdır.</p>
+      <p>Düşük persentil değerleri (5. persentil altında) yetersiz büyümeyi veya kilo alımını gösterebilir.</p>
+      <p>Yüksek persentil değerleri (95. persentil üzerinde) aşırı büyümeyi veya kilo alımını gösterebilir.</p>
+      <p>Orta seviyeler (25. - 75. persentil arası) genellikle normal olarak kabul edilir.</p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-button expand="full" (click)="goToFormPage()">
+    İleri
+  </ion-button>
+</ion-content>

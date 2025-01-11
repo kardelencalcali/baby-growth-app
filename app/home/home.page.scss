@@ -1,0 +1,14 @@
+:host {
+  display: block;
+}
+
+ion-content {
+  --background: #ad82d8; /* Giriş sayfasının arka planını mor yapar */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  height: 100%;
+z-index: 0;
+}

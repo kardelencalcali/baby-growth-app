@@ -1,0 +1,91 @@
+/* HTML ve body elemanlarını tam ekran yapar */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* Taşma sorunlarını önler */
+}
+
+/* Ion-content'in tam ekran kaplamasını sağlar */
+ion-content {
+  height: 100%;
+  --background: transparent; /* Ion-content arka plan rengini saydam yapar */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+/* Sayfanın tamamını kaplayan, animasyon içeren arka plan */
+#lottie-background {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow:hidden;
+  z-index: -1; /* Diğer içeriklerin altında */
+}
+
+/* Kartların ve butonların görünümünü kontrol eder */
+
+
+
+/* Kartların görünümünü yönetir */
+.register-card {  width: 100%; /* Kartın genişliğini ayarlayın, isterseniz %100 yapabilirsiniz */
+  max-width: 800px; /* Maksimum genişlik belirleyebilirsiniz */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; /* Kart içeriğini yatayda ortalar */
+  padding: 16px; /* İçerik boşluğu */
+  box-sizing: border-box; /* Padding dahil genişlik hesaplama */
+  background-color: white; /* Kartın arka plan rengi */
+  border-radius: 8px; /* Köşe yuvarlatma */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Hafif gölge efekti */
+  transition: opacity 0.3s ease-in-out; /* Geçiş efekti */
+  padding: 24px; /* İçerik boşluğunu artır */
+}
+ 
+
+  /* Logo düzenlemesi */
+.logo-container {
+  margin-bottom: 16px; /* Logo ve kart arasındaki boşluk */
+  display: flex;
+  justify-content: center; /* Logo'nun yatayda ortalanması */
+  align-items: center; /* Logo'nun dikeyde ortalanması */
+}
+
+
+/* İkon ve metin hizalamasını ayarlar */
+ion-item {
+  --inner-padding-end: 16px; /* İkon ve metin arasındaki boşluk */
+  align-items: center; /* Dikey ortalama */
+}
+
+
+
+
+
+/* Butonların görünümünü kontrol eder */
+ion-button {
+  --background: #ad82d8; /* Buton arka plan rengi */
+  --color: #fff; /* Buton üzerindeki metin rengi */
+  --border-radius: 4px; /* İsteğe bağlı: Butonun köşe yuvarlaklığı */
+  --padding-start: 20px; /* İsteğe bağlı: Buton içindeki boşluk */
+  --padding-end: 20px; /* İsteğe bağlı: Buton içindeki boşluk */
+  display: block; /* Butonları alt alta hizalar */
+  margin: 8px 0; /* Butonlar arasındaki boşluk */
+  width: 100%; /* Butonun genişliği */}
+
+
+
+.imgDiv{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  margin: auto;
+}
+

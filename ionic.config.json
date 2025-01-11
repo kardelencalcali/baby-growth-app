@@ -1,0 +1,7 @@
+{
+  "name": "baby-growth-app",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

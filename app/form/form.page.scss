@@ -1,0 +1,89 @@
+ion-content {
+  --background: transparent; /* Arka planın transparanlığını korur */
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; /* Tam ekran yüksekliği */
+}
+
+#container {
+  width: 90%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+ion-card {
+  --background: rgba(255, 255, 255, 0.9); /* Hafif transparan beyaz arka plan */
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 16px 0; /* Card'lar arasında boşluk */
+}
+
+ion-card-header {
+  background: rgba(0, 0, 0, 0.05); /* Hafif gri arka plan rengi */
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 16px;
+}
+
+ion-card-title {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+ion-card-content {
+  padding: 16px;
+}
+
+ion-item {
+  margin-bottom: 16px;
+}
+
+ion-input, ion-select {
+  margin-left: 8px;
+  margin-right: 8px;
+}
+
+ion-icon {
+  font-size: 20px;
+}
+ion-select::part(icon) {
+  display: none;
+}
+
+
+ion-button {
+  --background: #ad82d8; /* Buton arka plan rengi */
+  --color: #fff; /* Buton üzerindeki metin rengi */
+  --border-radius: 4px; /* İsteğe bağlı: Butonun köşe yuvarlaklığı */
+  --padding-start: 16px; /* İsteğe bağlı: Buton içindeki boşluk */
+  --padding-end: 16px; /* İsteğe bağlı: Buton içindeki boşluk */
+  margin-top: 8px; /* Butonlar arasında boşluk */
+}
+
+ion-button[expand="full"] {
+  width: 100%;
+}
+
+ion-row {
+  margin: 0;
+}
+
+ion-col {
+  padding: 0;
+}
+
+.question-prompt {
+  cursor: pointer;
+  color: #101110;
+  font-weight: bold;
+}
+
+ion-label {
+  color: #333; /* Etiket rengi: Koyu gri */
+}
+
+/* Adım card'ları arasındaki boşluğu artırarak ortalamayı sağlamak */
+ion-card:nth-of-type(4) {
+  margin-top: 32px; /* 4. adım card'ının yukarıdan boşluğu */
+}

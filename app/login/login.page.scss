@@ -1,0 +1,152 @@
+/* HTML ve body elemanlarını tam ekran yapar */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* Taşma sorunlarını önler */
+}
+
+/* Ion-content'in tam ekran kaplamasını sağlar */
+ion-content {
+  height: 100vh; /* Ekranın tamamını kaplar */
+  --background: transparent; /* Arka plan rengini saydam yapar */
+  position: relative; /* Çocuk elemanların doğru konumlanması için */
+  display: flex;
+  justify-content: center; /* İçeriği yatayda ortalar */
+  align-items: center; /* İçeriği dikeyde ortalar */
+}
+
+/* Grid düzenlemeleri */
+ion-grid {
+  height: 100%; /* Grid'in yüksekliği */
+  width: 100%;  /* Grid'in genişliği */
+}
+
+/* Row düzenlemeleri */
+ion-row {
+  width: 100%; /* Row'un genişliği */
+  justify-content: center; /* İçeriği yatayda ortalar */
+  align-items: center; /* İçeriği dikeyde ortalar */
+}
+
+/* Column düzenlemeleri */
+ion-col {
+  display: flex;
+  flex-direction: column; /* Logo ve kartı dikeyde hizalamak için */
+  align-items: center; /* Logo ve kartın ortalanması */
+  justify-content: center; /* Logo ve kartın ortalanması */
+  padding: 16px; /* Padding ekleyerek içeriği kenarlardan uzaklaştır */
+}
+
+/* Logo düzenlemesi */
+.logo-container {
+  margin-bottom: 16px; /* Logo ve kart arasındaki boşluk */
+  display: flex;
+  justify-content: center; /* Logo'nun yatayda ortalanması */
+  align-items: center; /* Logo'nun dikeyde ortalanması */
+}
+.logo {
+  max-width: 100%;
+  height: auto; /* Orantılı yükseklik */
+}
+
+/* Sayfanın tamamını kaplayan, animasyon içeren arka plan */
+#lottie-background {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  z-index: -1; /* Diğer içeriklerin altında */
+}
+
+/* Giriş kartının görünümünü kontrol eder */
+.login-card {
+  width: 100%;
+  max-width: 600px; /* Maksimum genişlik */
+  padding: 16px; /* İçerik için boşluk ekler */
+  position: relative;
+  overflow: hidden; /* Taşma sorunlarını önler */
+  backdrop-filter: blur(10px); /* Arka planı bulanıklaştırır */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Hafif gölge efekti */
+  border-radius: 12px; /* Köşe yuvarlama */
+  transition: opacity 0.3s ease-in-out; /* Geçiş efekti */
+}
+
+/* Kart içindeki butonların düzenlenmesi */
+.login-card ion-button {
+  width: 100%; /* Butonun genişliğini ayarlar */
+  margin: 8px 0; /* Butonlar arasındaki boşluğu ayarlar */
+}
+
+/* Hata mesajı düzenlemesi */
+.error-message {
+  color: red;
+  margin: 16px 0; /* Hata mesajı ile butonlar arasındaki boşluk */
+}
+
+/* Başlık ve içerik düzeni */
+ion-item ion-label h2 {
+  font-size: 1.2rem;
+  margin-bottom: 4px;
+}
+ion-item ion-label p {
+  font-size: 1rem;
+  margin: 0;
+}
+
+/* Butonların görünümünü kontrol eder */
+ion-button {
+  --background: #ad82d8; /* Buton arka plan rengi */
+  --color: #fff; /* Buton üzerindeki metin rengi */
+  --border-radius: 4px; /* İsteğe bağlı: Butonun köşe yuvarlaklığı */
+  --padding-start: 16px; /* İsteğe bağlı: Buton içindeki boşluk */
+  --padding-end: 16px; /* İsteğe bağlı: Buton içindeki boşluk */
+  display: block; /* Butonları alt alta hizalar */
+  margin: 8px 0; /* Butonlar arasındaki boşluk */
+  width: 100%; /* Butonun genişliği */
+}
+
+/* Kartın ortalanması */
+.login-card {
+  height: auto; /* Kartın yüksekliği içeriğe bağlı olarak ayarlanır */
+  width: 90%; /* Kartın genişliği */
+  max-width: 600px; /* Maksimum genişlik */
+  display: flex;
+  justify-content: center; /* İçeriği yatayda ortalar */
+  margin: auto;
+}
+
+/* Resim ve logo düzenlemesi */
+.imgDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  margin: auto;
+}
+
+.delete-photo-btn {
+  position: absolute;
+  right: -40px; /* Silme butonunun sağda konumlandırılması */
+  top: 50%; /* Silme butonunun çerçevenin ortasında dikey olarak konumlandırılması */
+  transform: translateY(-50%); /* Silme butonunun dikey olarak ortalanması */
+  background: rgb(240, 4, 4); /* Arka plan rengi */
+  border-radius: 50%; /* Çerçevenin köşelerini yuvarlar */
+  padding: 5px; /* İç boşluk */
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* Gölge efekti */
+  cursor: pointer; /* Fare üzerine geldiğinde gösterilen imleç */
+  transition: background-color 0.3s ease; /* Renk değişimi için geçiş efekti */
+}
+
+.delete-photo-btn:hover {
+  background-color: #e0e0e0; /* Üzerine gelindiğinde arka plan rengi */
+}
+
+.delete-photo-btn ion-icon {
+  font-size: 20px; /* İkonun boyutu */
+  color: #b59b9a; /* İkonun rengi */
+}
+

@@ -1,0 +1,214 @@
+ion-content {
+  --background: transparent;
+  padding: 0;
+}
+
+.profile-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.avatar-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px; /* Profil fotoğrafı ve bebek adı arasına boşluk ekler */
+}
+
+ion-avatar {
+  width: 100px; /* Profil fotoğrafı çerçevesi genişliği */
+  height: 100px; /* Profil fotoğrafı çerçevesi yüksekliği */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%; /* Çerçeve köşelerini yuvarlar */
+  overflow: hidden; /* Fotoğraf çerçevenin dışına taşmaz */
+  border: 2px dashed #ccc; /* Fotoğraf ekleme çerçevesi */
+  background-color: #f9f9f9;
+}
+
+ion-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.placeholder-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.placeholder-icon {
+  font-size: 24px;
+}
+
+.delete-photo-btn {
+  position: absolute;
+  right: -40px; /* Silme butonunun sağda konumlandırılması */
+  top: 50%; /* Silme butonunun çerçevenin ortasında dikey olarak konumlandırılması */
+  transform: translateY(-50%); /* Silme butonunun dikey olarak ortalanması */
+  background: rgb(240, 4, 4);
+  border-radius: 50%;
+  padding: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+}
+
+.delete-photo-btn ion-icon {
+  font-size: 20px;
+}
+
+/* Fotoğrafı Silme Butonu */
+.delete-photo-btn {
+  background: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease;
+}
+
+.delete-photo-btn:hover {
+  background-color: #e0e0e0;
+}
+
+.delete-photo-btn ion-icon {
+  font-size: 20px;
+  color: #b59b9a;
+}
+
+/* Dosya Seçme Alanı */
+.file-input {
+  display: none;
+  margin: 10px auto;
+}
+
+/* Bebek Adı Giriş Formu */
+ion-item {
+  margin: 8px 0;
+}
+
+ion-input {
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  padding: 8px;
+  background-color: #fafafa;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+ion-input:focus {
+  border-color: #ad82d8;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.15);
+}
+
+.baby-name-container {
+  margin-top: 16px; /* Bebek adı ve profil fotoğrafı arasına boşluk ekler */
+  text-align: center; /* Bebek adını ortalar */
+}
+
+.baby-name-input {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #333;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 8px;
+  background-color: #fafafa;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 300px; /* Genişliği sınırlama */
+}
+
+ion-button {
+  --background: #ad82d8;
+  --color: #fff;
+  --border-radius: 4px;
+  --padding-start: 16px;
+  --padding-end: 16px;
+  margin-top: 16px;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+ion-button:hover {
+  --background: #9c71c3;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+ion-button[expand='full'] {
+  width: 100%;
+}
+
+/* Kartları düzenleme */
+ion-card {
+  --background: rgba(255, 255, 255, 0.85);
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin: 16px 0; /* Üst ve alt marginler */
+  overflow: hidden;
+}
+
+/* Kartın sol ve sağ kenarlarından boşluk bırak */
+@media (min-width: 768px) {
+  ion-card {
+    margin: 16px 20px; /* Yanlardan boşluk bırak */
+  }
+}
+
+ion-card-header {
+  background: rgba(0, 0, 0, 0.05);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 16px;
+}
+
+ion-card-title {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #333;
+}
+
+ion-card-content {
+  padding: 16px;
+}
+
+ion-card-content p {
+  font-size: 16px;
+  color: #333;
+}
+
+ion-card-header {
+  background-color: #f9f9f9;
+  border-bottom: 1px solid #ddd;
+}
+
+ion-card-content {
+  font-size: 16px;
+  color: #666;
+}
+
+/* Responsive Tasarım */
+@media (max-width: 767px) {
+  ion-card {
+    margin: 8px 10px; /* Mobil ekranlarda kenar boşluklarını daralt */
+  }
+
+  .avatar-container {
+    width: 80px;
+    height: 80px;
+  }
+}
+.percentile-info p {
+  margin: 8px 0; /* Paragraflar arasında boşluk */
+  line-height: 1.5; /* Satır yüksekliği */
+  word-break: break-word; /* Taşmayı önler ve kelimeleri bölerek düzenler */
+}

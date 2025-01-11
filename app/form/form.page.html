@@ -1,0 +1,157 @@
+<ion-content fullscreen="true" class="ion-padding">
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12">
+        <div id="container">
+          <form [formGroup]="form" (ngSubmit)="onSubmit()">
+            <!-- Adım 1: Birth Date -->
+            <ion-card *ngIf="currentStep === 1">
+              <ion-card-header>
+                <ion-card-title>Doğum Tarihi</ion-card-title>
+              </ion-card-header>
+              <ion-card-content>
+                <ion-row>
+                  <ion-col size="12">
+                    <ion-item>
+                      <ion-label position="floating"></ion-label>
+                      <ion-icon slot="start"></ion-icon>
+                      <ion-datetime  display-format="YYYY-MM-DD"  picker-format="YYYY-MM-DD"  formControlName="birthDate"></ion-datetime>
+                    </ion-item>
+                  </ion-col>
+                </ion-row>
+                <ion-row>
+                  <ion-col size="12">
+                    <ion-button expand="full" (click)="nextStep()">İleri</ion-button>
+                  </ion-col>
+                </ion-row>
+              </ion-card-content>
+            </ion-card>
+
+            <!-- Adım 2: Measurement Date -->
+            <ion-card *ngIf="currentStep === 2">
+              <ion-card-header>
+                <ion-card-title>Ölçüm Tarihi</ion-card-title>
+              </ion-card-header>
+              <ion-card-content>
+                <ion-row>
+                  <ion-col size="12">
+                    <ion-item>
+                      <ion-label position="floating"></ion-label>
+                      <ion-icon slot="start"></ion-icon>
+                      <ion-datetime   display-format="YYYY-MM-DD" picker-format="YYYY-MM-DD"  formControlName="measurementDate"></ion-datetime>
+                    </ion-item>
+                  </ion-col>
+                </ion-row>
+                <ion-row>
+                  <ion-col size="12">
+                    <ion-button expand="full" (click)="prevStep()">Geri</ion-button>
+                  </ion-col>
+                </ion-row>
+                <ion-row>
+                  <ion-col size="12">
+                    <ion-button expand="full" (click)="nextStep()">İleri</ion-button>
+                  </ion-col>
+                </ion-row>
+              </ion-card-content>
+            </ion-card>
+
+            <!-- Adım 3: Baby's Information -->
+            <ion-card *ngIf="currentStep === 3">
+              <ion-card-header>
+                <ion-card-title>Bebeğin Bilgileri</ion-card-title>
+              </ion-card-header>
+              <ion-card-content>
+                <ion-row>
+                  <ion-col size="12">
+                    <ion-item>
+                      <ion-label position="floating">Ağırlığı (kg)</ion-label>
+                      <ion-icon slot="start" src="assets/icon/weight.svg"></ion-icon>
+                      <ion-input type="number" formControlName="weight"></ion-input>
+                    </ion-item>
+                  </ion-col>
+                </ion-row>
+                <ion-row>
+                  <ion-col size="12">
+                    <ion-item>
+                      <ion-label position="floating">Boyu (cm)</ion-label>
+                      <ion-icon slot="start" src="assets/icon/mesura.svg"></ion-icon>
+                      <ion-input type="number" formControlName="height"></ion-input>
+                    </ion-item>
+                  </ion-col>
+                </ion-row>
+                <ion-row>
+                  <ion-col size="12">
+                    <ion-item>
+                      <ion-label position="floating">Cinsiyeti</ion-label>
+                      <ion-icon slot="start" [src]="form.controls['gender'].value === 'male' ? 'assets/icon/boy.svg' : 'assets/icon/girl.svg'"></ion-icon>
+                      <ion-select formControlName="gender" placeholder="">
+                        <ion-select-option value="male">Erkek</ion-select-option>
+                        <ion-select-option value="female">Kız</ion-select-option>
+                      </ion-select>
+                    </ion-item>
+                  </ion-col>
+                </ion-row>
+                <ion-row>
+                  <ion-col size="12">
+                    <ion-button expand="full" (click)="prevStep()">Geri</ion-button>
+                  </ion-col>
+                </ion-row>
+                <ion-row>
+                  <ion-col size="12">
+                    <ion-button expand="full" (click)="nextStep()">İleri</ion-button>
+                  </ion-col>
+                </ion-row>
+              </ion-card-content>
+            </ion-card>
+
+            <!-- Adım 4: Height Prediction -->
+            <ion-card *ngIf="currentStep === 4">
+              <ion-card-header>
+              
+              </ion-card-header>
+              <ion-card-content>
+                <ion-row>
+                  <ion-col size="12">
+                    <ion-item class="question-prompt" (click)="toggleHeightPrediction()">
+                      <ion-icon name="help-circle-outline" slot="start"></ion-icon>
+                      <strong>Bebeğinizin öngörülen boyunu hesaplamak ister misiniz?</strong>
+                    </ion-item>
+                  </ion-col>
+                </ion-row>
+                <ion-row *ngIf="showHeightInput">
+                  <ion-col size="12">
+                    <ion-item>
+                      <ion-label position="floating">Anne Boyu (cm)</ion-label>
+                      <ion-icon slot="start" src="assets/icon/mesura.svg"></ion-icon>
+                      <ion-input type="number" formControlName="motherHeight"></ion-input>
+                    </ion-item>
+                  </ion-col>
+                </ion-row>
+                <ion-row *ngIf="showHeightInput">
+                  <ion-col size="12">
+                    <ion-item>
+                      <ion-label position="floating">Baba Boyu (cm)</ion-label>
+                      <ion-icon slot="start" src="assets/icon/mesura.svg"></ion-icon>
+                      <ion-input type="number" formControlName="fatherHeight"></ion-input>
+                    </ion-item>
+                  </ion-col>
+                </ion-row>
+                <ion-row>
+                  <ion-col size="12">
+                    <ion-button expand="full" (click)="prevStep()">Geri</ion-button>
+                  </ion-col>
+                </ion-row>
+                <ion-row>
+                  <ion-col size="12">
+                    <ion-button expand="full" type="submit" [disabled]="!form.valid">İleri</ion-button>
+                  </ion-col>
+                </ion-row>
+              </ion-card-content>
+            </ion-card>
+
+          </form>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

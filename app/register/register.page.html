@@ -1,0 +1,44 @@
+<ion-content class="ion-padding">
+  <div>
+    <div class="logo-container imgDiv">
+      <img *ngIf="platform.is('desktop')"  src="assets/kullanıcı.png" style="max-width: 10%;" alt="Logo" class="logo">
+      <img *ngIf="!platform.is('desktop')"  src="assets/kullanıcı.png" style="max-width: 50%;" alt="Logo" class="logo">
+    </div>
+
+    <ion-card class="registerCard">
+      <ion-card-content>
+        <form (ngSubmit)="onRegister()">
+          <!-- First Name Input -->
+          <ion-item>
+            <ion-label position="floating">İsim</ion-label>
+            <ion-input autocomplete="off" [(ngModel)]="user.firstName" name="firstName" required></ion-input>
+          </ion-item>
+
+          <!-- Last Name Input -->
+          <ion-item>
+            <ion-label position="floating">Soyisim</ion-label>
+            <ion-input autocomplete="off" [(ngModel)]="user.lastName" name="lastName" required></ion-input>
+          </ion-item>
+
+          <!-- Email Input -->
+          <ion-item>
+            <ion-label position="floating">Email</ion-label>
+            <ion-input autocomplete="off" type="email" [(ngModel)]="user.email" name="email" required></ion-input>
+          </ion-item>
+
+          <!-- Password Input -->
+          <ion-item style="display: flex;">
+            <ion-label position="floating">Şifre</ion-label>
+            <ion-input [type]="passwordType" autocomplete="off" [(ngModel)]="user.password" name="password" required></ion-input>
+            <ion-icon  style="margin-top: 2vw;"  slot="end" [name]="passwordType === 'password' ? 'eye-off' : 'eye'" (click)="togglePasswordVisibility()"></ion-icon>
+          </ion-item>
+
+          <div class="button-container">
+            <ion-button expand="full" type="submit">Kayıt OL</ion-button>
+            <ion-button expand="full" (click)="goToLogin()">Hesabın var mı? Giriş Yap</ion-button>
+          </div>
+        </form>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

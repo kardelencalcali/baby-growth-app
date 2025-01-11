@@ -1,0 +1,21 @@
+// Örneğin, grafik arka planı için bir stil
+.chart-container {
+    background-color: #eb9cd4;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+// Grafik başlığı için stil
+.chart-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+// Grafik için genel stil
+.chart {
+    width: 100%;
+    max-width: 800px; // Grafik maksimum genişliği
+    margin: 0 auto; // Ortala
+}

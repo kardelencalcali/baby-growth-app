@@ -1,0 +1,92 @@
+<ion-content padding>
+  <div class="container">
+    <!-- Geri Butonu -->
+    <div class="back-button-container">
+      <ion-button (click)="goBack()" fill="clear">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+        <span>Geri</span>
+      </ion-button>
+    </div>
+
+    <!-- Baby's Info Section -->
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Bilgilerim</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <div class="info-section">
+          <p>
+            <ion-icon slot="start" src="assets/icon/calendar.svg"></ion-icon>
+            <strong>Doğum Tarihi:</strong> {{ birthDate | date:'dd MMM yyyy'}}
+          </p>
+          <p>
+            <ion-icon slot="start" src="assets/icon/calendar.svg"></ion-icon>
+            <strong>Ölçüm Tarihi:</strong> {{ measurementDate | date:'dd MMM yyyy' }}
+          </p>
+          <p>
+            <ion-icon slot="start" src="assets/icon/weight.svg"></ion-icon>
+            <strong>Ağırlık:</strong> {{ weight }} kg
+          </p>
+          <p>
+            <ion-icon slot="start" src="assets/icon/mesura.svg"></ion-icon>
+            <strong>Boyu:</strong> {{ height }} cm
+          </p>
+          <p>
+            <ion-icon slot="start" src="assets/icon/gender.svg"></ion-icon>
+            <strong>Cinsiyet:</strong> {{ gender === 'male' ? 'Male' : 'Female' }}
+          </p>
+          <p>
+            <ion-icon slot="start" src="assets/icon/mesura.svg"></ion-icon>
+            <strong>Anne Boyu:</strong> {{ motherHeight ? motherHeight + ' cm' : 'Not provided' }}
+          </p>
+          <p>
+            <ion-icon slot="start" src="assets/icon/mesura.svg"></ion-icon>
+            <strong>Baba Boyu:</strong> {{ fatherHeight ? fatherHeight + ' cm' : 'Not provided' }}
+          </p>
+          <p>
+            <ion-icon slot="start" src="assets/icon/weight.svg"></ion-icon>
+            <strong>Ağırlık Durumu:</strong> {{ weightStatus }}
+          </p>
+          <p>
+            <ion-icon slot="start" src="assets/icon/yuzde.svg"></ion-icon>
+            <strong>Ağırlık persentili:</strong> {{ weightPercentile ? weightPercentile.toFixed(2) + '%' : 'N/A' }}
+          </p>
+          <p>
+            <ion-icon slot="start" src="assets/icon/yuzde.svg"></ion-icon>
+            <strong>Boy persentili:</strong> {{ heightPercentile ? heightPercentile.toFixed(2) + '%' : 'N/A' }}
+          </p>
+          <p>
+            <ion-icon slot="start" src="assets/icon/ortalamaboy.svg"></ion-icon>
+            <strong>Tahmini Boy:</strong> {{ predictedHeight ? predictedHeight + ' cm' : 'N/A' }}
+          </p>
+        </div>
+      </ion-card-content>
+    </ion-card>
+
+    <!-- Growth Charts Section -->
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Ağırlık Grafiği</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <div class="chart-container">
+          <canvas id="weight-growth-chart"></canvas>
+        </div>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Boy Grafiği</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <div class="chart-container">
+          <canvas id="height-growth-chart"></canvas>
+        </div>
+      </ion-card-content>
+    </ion-card>
+
+    <!-- Kaydet Butonu -->
+    <ion-button expand="full" (click)="saveMeasurement()">Kaydet</ion-button>
+  </div>
+</ion-content>

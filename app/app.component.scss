@@ -1,0 +1,22 @@
+:host {
+    display: block;
+    height: 100%;
+  }
+  
+  #lottie-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Arkaplan olarak kalması için */
+    pointer-events: none; /* Tıklanamaz yap */
+    overflow: hidden;
+  }
+  ion-button {
+    --background: #ba49ee; /* Buton arka plan rengi */
+    --color: #fff; /* Buton üzerindeki metin rengi */
+    --border-radius: 4px; /* İsteğe bağlı: Butonun köşe yuvarlaklığı */
+    --padding-start: 16px; /* İsteğe bağlı: Buton içindeki boşluk */
+    --padding-end: 16px; /* İsteğe bağlı: Buton içindeki boşluk */
+  }  
